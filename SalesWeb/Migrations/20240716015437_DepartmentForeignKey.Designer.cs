@@ -40,20 +40,20 @@ namespace SalesWeb.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("Sellerid");
+                    b.Property<int?>("SellerId");
 
                     b.Property<int>("Status");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Sellerid");
+                    b.HasIndex("SellerId");
 
                     b.ToTable("SalesRecord");
                 });
 
             modelBuilder.Entity("SalesWeb.Models.Seller", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<double>("BaseSalary");
@@ -66,7 +66,7 @@ namespace SalesWeb.Migrations
 
                     b.Property<string>("Name");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
 

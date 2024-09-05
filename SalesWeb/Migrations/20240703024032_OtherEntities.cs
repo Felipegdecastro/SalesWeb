@@ -12,7 +12,7 @@ namespace SalesWeb.Migrations
                 name: "Seller",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
@@ -22,7 +22,7 @@ namespace SalesWeb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Seller", x => x.id);
+                    table.PrimaryKey("PK_Seller", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Seller_Department_DepartmentId",
                         column: x => x.DepartmentId,
@@ -40,23 +40,23 @@ namespace SalesWeb.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     Amount = table.Column<double>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    Sellerid = table.Column<int>(nullable: true)
+                    SellerId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SalesRecord", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SalesRecord_Seller_Sellerid",
-                        column: x => x.Sellerid,
+                        name: "FK_SalesRecord_Seller_SellerId",
+                        column: x => x.SellerId,
                         principalTable: "Seller",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_SalesRecord_Sellerid",
+                name: "IX_SalesRecord_SellerId",
                 table: "SalesRecord",
-                column: "Sellerid");
+                column: "SellerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Seller_DepartmentId",

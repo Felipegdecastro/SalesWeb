@@ -8,7 +8,7 @@ namespace SalesWeb.Models
 {
     public class Seller
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         
         [Required(ErrorMessage ="{0} Required")]
         [StringLength(60, MinimumLength =3, ErrorMessage ="{0} size must be between {2} and {1}")]
@@ -45,7 +45,7 @@ namespace SalesWeb.Models
 
         public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Department department)
         {
-            this.id = id;
+            this.Id = id;
             Name = name;
             Email = email;
             BirthDate = birthDate;
